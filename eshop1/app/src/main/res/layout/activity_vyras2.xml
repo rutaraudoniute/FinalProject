@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#DCDCDC"
+    tools:context=".vyras2">
+
+    <Button
+        android:id="@+id/foto11v"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+
+        android:background="@drawable/k1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/d11v"
+        android:layout_width="214dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="10dp"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:text="Mitchel All-Star "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.14"
+        app:layout_constraintStart_toEndOf="@+id/foto11v"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/p11v"
+        android:layout_width="103dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textColor="#001111"
+        android:textSize="20dp"
+        android:text="25€"
+        app:layout_constraintStart_toEndOf="@+id/foto11v"
+        app:layout_constraintTop_toBottomOf="@+id/d11v" />
+
+    <Button
+        android:id="@+id/buy11v"
+        android:layout_width="89dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:text="INFO"
+        app:layout_constraintStart_toEndOf="@+id/p11v"
+        app:layout_constraintTop_toBottomOf="@+id/d11v" />
+
+    <Button
+        android:id="@+id/foto22v"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:textColor="#000000"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/k2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto11v" />
+
+
+    <TextView
+        android:id="@+id/d22v"
+        android:layout_width="214dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:text="Chicago Bulls Logo"
+
+        app:layout_constraintStart_toEndOf="@+id/foto22v"
+        app:layout_constraintTop_toBottomOf="@+id/p11v" />
+
+    <TextView
+        android:id="@+id/p22v"
+        android:layout_width="103dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textColor="#001111"
+        android:textSize="20dp"
+        android:text="20€"
+
+        app:layout_constraintStart_toEndOf="@+id/foto22v"
+        app:layout_constraintTop_toBottomOf="@+id/d22v" />
+
+    <Button
+        android:id="@+id/buy22v"
+        android:layout_width="89dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:text="INFO"
+        app:layout_constraintStart_toEndOf="@+id/p22v"
+        app:layout_constraintTop_toBottomOf="@+id/d22v" />
+
+    <Button
+        android:id="@+id/foto33v"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/k3"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto22v" />
+
+    <TextView
+        android:id="@+id/d33v"
+        android:layout_width="214dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        android:text="Barcelona Adjustable "
+        app:layout_constraintStart_toEndOf="@+id/foto33v"
+        app:layout_constraintTop_toBottomOf="@+id/p22v" />
+
+    <TextView
+        android:id="@+id/p33v"
+        android:layout_width="103dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textColor="#001111"
+        android:textSize="20dp"
+        android:text="35€"
+
+        app:layout_constraintStart_toEndOf="@+id/foto33v"
+        app:layout_constraintTop_toBottomOf="@+id/d33v" />
+
+    <Button
+        android:id="@+id/buy33v"
+        android:layout_width="89dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:text="INFO"
+        app:layout_constraintStart_toEndOf="@+id/p33v"
+        app:layout_constraintTop_toBottomOf="@+id/d33v" />
+
+    <Button
+        android:id="@+id/foto44v"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/k4"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto33v" />
+
+    <TextView
+        android:id="@+id/d44v"
+        android:layout_width="214dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:text="Cayler Sons WL "
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="#000000"
+        app:layout_constraintStart_toEndOf="@+id/foto44v"
+        app:layout_constraintTop_toBottomOf="@+id/p33v" />
+
+    <TextView
+        android:id="@+id/p44v"
+        android:layout_width="103dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textColor="#001111"
+        android:textSize="20dp"
+        android:text="30€"
+        app:layout_constraintStart_toEndOf="@+id/foto44v"
+        app:layout_constraintTop_toBottomOf="@+id/d44v" />
+
+    <Button
+        android:id="@+id/buy44v"
+        android:layout_width="89dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:background="#ffffff"
+        android:text="INFO"
+        app:layout_constraintStart_toEndOf="@+id/p44v"
+        app:layout_constraintTop_toBottomOf="@+id/d44v" />
+
+    <Button
+        android:id="@+id/foto55v"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:background="@drawable/k5"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto44v" />
+
+    <TextView
+        android:id="@+id/d55v"
+        android:layout_width="214dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="57dp"
+        android:text="Cayler Sons WL "
+        android:textStyle="bold"
+        android:textSize="17sp"
+        android:textColor="#000000"
+
+        app:layout_constraintStart_toEndOf="@+id/foto55v"
+        app:layout_constraintTop_toBottomOf="@+id/p44v" />
+
+    <TextView
+        android:id="@+id/p55v"
+        android:layout_width="103dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:textColor="#001111"
+        android:textSize="20dp"
+        android:text="35€"
+        app:layout_constraintStart_toEndOf="@+id/foto33v"
+        app:layout_constraintTop_toBottomOf="@+id/d55v" />
+
+    <Button
+        android:id="@+id/buy55v"
+        android:layout_width="89dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="INFO"
+        android:background="#ffffff"
+        app:layout_constraintStart_toEndOf="@+id/p55v"
+        app:layout_constraintTop_toBottomOf="@+id/d55v" />
+
+
+    <Button
+        android:id="@+id/next22v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="8dp"
+        android:text="Next Page"
+        android:background="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p55v"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <Button
+        android:id="@+id/back11v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#ffffff"
+        android:text="Back Page"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/next22v"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/p55v"
+        app:layout_constraintVertical_bias="0.545" />
+
+</android.support.constraint.ConstraintLayout>

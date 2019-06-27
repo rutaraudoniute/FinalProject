@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bla2"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/register_main"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/buttons"
+        android:padding="20dp"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/login_main"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="212dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="47dp"
+        android:background="@drawable/buttons"
+        android:padding="20dp"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/shop_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/register_main"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/buttons"
+        android:padding="20dp"
+        android:text="SHOP NOW"
+        android:textAllCaps="false"
+        android:textSize="26sp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="298dp"
+        android:layout_height="110dp"
+        android:layout_above="@+id/shop_btn"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="58dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="256dp"
+        app:srcCompat="@drawable/logo" />
+
+
+</RelativeLayout>

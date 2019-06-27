@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/batai1"
+    tools:context=".CategoryActivity">
+
+    <TextView
+        android:id="@+id/category1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="Select Category"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        />
+
+        <LinearLayout
+            android:id="@+id/category_line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/category1"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_marginTop="30dp">
+            
+
+
+
+        </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/gender1"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/woman_button"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="95dp"
+        android:textColor="#000000"
+        android:text="Women"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/gender2"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/man_button"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="245dp"
+        android:textColor="#000000"
+        android:text="Man"
+        android:textAllCaps="true"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/woman_button"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="70dp"
+        android:layout_below="@id/category1"
+        android:layout_width="160dp"
+        android:layout_height="220dp"
+        android:background="@drawable/moteris1"
+        />
+
+    <Button
+        android:id="@+id/man_button"
+        android:layout_marginLeft="210dp"
+        android:layout_marginTop="70dp"
+        android:layout_below="@id/category1"
+        android:layout_width="160dp"
+        android:layout_height="220dp"
+        android:background="@drawable/byras1"
+        />
+
+
+
+</RelativeLayout>
