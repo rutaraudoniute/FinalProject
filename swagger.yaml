@@ -1,0 +1,916 @@
+swagger: "2.0"
+info:
+  description: "This is a sample server Shoesstore server.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters."
+  version: "1.0.0"
+  title: "Shoes Shop"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "products.swagger.io"
+basePath: "/v2"
+tags:
+- name: "product"
+  description: "Everything about your products"
+- name: "category"
+  description: "Everything about categories"
+- name: "orders"
+  description: "Operations about orders"
+- name: "stock"
+  description: "Stock operations"
+- name: "supplier"
+  description: "Operations about suppliers"
+- name: "customer"
+  description: "Everything about customers"  
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+consumes:
+      - "application/json"
+produces:
+      - "application/json"
+paths:
+  /product:
+    get:
+      tags:
+      - "product"
+      description: "Return all products"
+      operationId: "indexProduct"
+      responses:
+        201:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/Product"
+        500:
+          description: "Could not access products list."
+    post:
+      tags:
+      - "product"
+      description: "Create a new product"
+      operationId: "storeProduct"
+      parameters:
+      - name: "product"
+        in: "body"
+        description: "Product object with data to store"
+        required: true
+        schema:
+            $ref: "#/definitions/Product"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Product"  
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to show data for the desired product."
+    put:
+      tags:
+      - "product"
+      description: "Update existing product"
+      operationId: "updateProduct"
+      parameters:
+      - in: "body"
+        name: "product"
+        description: "Product object with updated data"
+        required: true
+        schema:
+            $ref: "#/definitions/Product"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Product"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to update data for the desired product."  
+  /product/{id}:
+    get:
+      tags:
+      - "product"
+      description: "Returns a single product according the id"
+      operationId: "showProduct"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id of the product"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Product"
+        422:
+          description: "ID parameter with errors."
+        500:
+          description: "Unable to get data for the desired product."
+    delete:
+      tags:
+      - "product"
+      description: "Deletes a product"
+      operationId: "deleteProduct"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Product id to delete"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Product deleted successfully."
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to delete data for the desired product."
+  /products/{id_category}:
+    get:
+      tags:
+      - "product"
+      description: "Returns a single product according the id of category"
+      operationId: "showProductByCategoryId"
+      parameters:
+      - name: "id_category"
+        in: "path"
+        description: "The category id to return a product"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Product"
+        422:
+          description: "Category id parameter with errors."
+        500:
+          description: "Unable to get data for the desired product."
+  /categories:
+    get:
+      tags:
+      - "category"
+      description: "Return all categories"
+      operationId: "indexCategory"
+      responses:
+        201:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/Product"
+        500:
+          description: "Could not access categories list."
+    post:
+      tags:
+      - "category"
+      description: "Create a new product"
+      operationId: "storeCategory"
+      parameters:
+      - in: "body"
+        name: "category"
+        description: "Category object with data to store"
+        required: true
+        schema:
+          $ref: "#/definitions/Category"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Category"  
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to show data for the desired category."
+    put:
+      tags:
+      - "category"
+      description: "Update an existing category"
+      operationId: "updateCategory"
+      parameters:
+      - in: "body"
+        name: "category"
+        description: "Category that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Category"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Category"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to update data for the desired category."  
+  /category/{id}:
+    get:
+      tags:
+      - "category"
+      description: "Returns a single category according the id"
+      operationId: "showCategory"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id of the category"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Category"
+        422:
+          description: "ID parameter with errors."
+        500:
+          description: "Unable to get data for the desired category."
+    delete:
+      tags:
+      - "category"
+      description: "Deletes a category"
+      operationId: "deleteCategory"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Category id to delete"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Category deleted successfully."
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to delete data for the desired category."
+  /categories/{id_product}:
+    get:
+      tags:
+      - "category"
+      description: "Returns a single category according the id of the product"
+      operationId: "showCategoryByProductId"
+      parameters:
+      - name: "id_product"
+        in: "path"
+        description: "Product id to return a category"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Category"
+        422:
+          description: "Product id parameter with errors."
+        500:
+          description: "Unable to get data for the desired category."
+  /orders:
+    get:
+      tags:
+      - "orders"
+      description: "Return all orders"
+      operationId: "indexOrders"
+      responses:
+        201:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/Orders"
+        500:
+          description: "Could not access orders list."
+    post:
+      tags:
+      - "orders"
+      description: "Create a new order"
+      operationId: "storeOrders"
+      parameters:
+      - in: "body"
+        name: "orders"
+        description: "Orders object with data to store"
+        required: true
+        schema:
+          $ref: "#/definitions/Orders"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Orders"  
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to show data for the desired order."
+    put:
+      tags:
+      - "orders"
+      description: "Update an existing orders"
+      operationId: "updateOrders"
+      parameters:
+      - in: "body"
+        name: "orders"
+        description: "Order that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Orders"
+      responses:
+        201:
+          description: "Succesful operation"
+          schema:
+            $ref: "#/definitions/Orders"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to update data for the desired order."
+  /order/{id}:
+    get:
+      tags:
+      - "orders"
+      description: "Returns a single order according the id"
+      operationId: "showOrders"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id of the order"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Orders"
+        422:
+          description: "ID parameter with errors."
+        500:
+          description: "Unable to get data for the desired order."
+    delete:
+      tags:
+      - "orders"
+      description: "Deletes order"
+      operationId: "deleteOrder"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Order id to delete"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Order deleted successfully."
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to delete data for the desired order."
+  /orders/{id_customer}:
+    get:
+      tags:
+      - "orders"
+      description: "Returns a single order according the id of customer"
+      operationId: "showOrdersByCustomerId"
+      parameters:
+      - name: "id_customer"
+        in: "path"
+        description: "Customer id to return an order"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Orders"
+        422:
+          description: "Customer id parameter with errors."
+        500:
+          description: "Unable to get data for the desired order."
+  /stock:
+    get:
+      tags:
+      - "stock"
+      description: "Return all stock"
+      operationId: "indexStock"
+      responses:
+        201:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/Stock"
+        500:
+          description: "Could not access stocks list."
+    post:
+      tags:
+      - "stock"
+      description: "Creat a new stock"
+      operationId: "storeStock"
+      parameters:
+      - in: "body"
+        name: "stock"
+        description: "Stock object with data to store"
+        required: true
+        schema:
+            $ref: "#/definitions/Stock"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Stock"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to show data for the desired stock."
+    put:
+      tags:
+      - "stock"
+      description: "Update an existing stock"
+      operationId: "updateStock"
+      parameters:
+      - in: "body"
+        name: "stock"
+        description: "Stock that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Stock"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Stock"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to update data for the desired stock."
+  /stock/{id}:
+    get:
+      tags:
+      - "stock"
+      description: "Returns a single stock according the id"
+      operationId: "showStock"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id of the stock"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Stock"
+        422:
+          description: "ID parameter with errors."
+        500:
+          description: "Unable to get data for the desired stock."
+    delete:
+      tags:
+      - "stock"
+      description: "Deletes a stock"
+      operationId: "deleteStock"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Stock id to delete"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Stock deleted successfully."
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to delete data for the desired stock."
+  /supplier:
+    get:
+      tags:
+      - "supplier"
+      description: "Return all suppliers"
+      operationId: "indexSupplier"
+      responses:
+        201:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/Supplier"
+        500:
+          description: "Could not access suppliers list."
+    post:
+      tags:
+      - "supplier"
+      description: "Creat a new supplier"
+      operationId: "storeSupplier"
+      parameters:
+      - in: "body"
+        name: "supplier"
+        description: "Supplier object with data to store"
+        required: true
+        schema:
+          $ref: "#/definitions/Supplier"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Supplier"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to show data for the desired supplier."
+    put:
+      tags:
+      - "supplier"
+      description: "Update an existing supplier"
+      operationId: "updateSupplier"
+      parameters:
+      - in: "body"
+        name: "supplier"
+        description: "Supplier that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Supplier"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Supplier"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to update data for the desired supplier."
+  /supplier/{id}:
+    get:
+      tags:
+      - "supplier"
+      description: "Returns a single supplier according the id"
+      operationId: "showSupplier"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id of the supplier"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Supplier"
+        422:
+          description: "ID parameter with errors."
+        500:
+          description: "Unable to get data for the desired supplier."
+    delete:
+      tags:
+      - "supplier"
+      description: "Deletes a supplier"
+      operationId: "deleteSupplier"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Supplier id to delete"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Supplier deleted successfully."
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to delete data for the desired supplier."
+  /customer:
+    get:
+      tags:
+      - "customer"
+      description: "Return all customer"
+      operationId: "indexCustomer"
+      responses:
+        201:
+          description: "Successfull operation"
+          schema:
+            $ref: "#/definitions/Customer"
+        500:
+          description: "Could not access customer list."
+    post:
+      tags:
+      - "customer"
+      description: "Creat a new customer"
+      operationId: "storeCustomer"
+      parameters:
+      - in: "body"
+        name: "customer"
+        description: "Customer object with data to store"
+        required: true
+        schema:
+          $ref: "#/definitions/Customer"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Customer"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to show data for the desired customer."
+    put:
+      tags:
+      - "customer"
+      description: "Update an existing customer"
+      operationId: "updateCustomer"
+      parameters:
+      - in: "body"
+        name: "customer"
+        description: "Customer that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Customer"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Customer"
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to update data for the desired customer."
+  /customer/{id}:
+    get:
+      tags:
+      - "customer"
+      description: "Returns a single customer according the id"
+      operationId: "showCustomer"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "The id of the customer"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Customer"
+        422:
+          description: "ID parameter with errors."
+        500:
+          description: "Unable to get data for the desired customer."
+    delete:
+      tags:
+      - "customer"
+      description: "Deletes a customer"
+      operationId: "deleteCustomer"
+      parameters:
+      - name: "id"
+        in: "path"
+        description: "Customerid to delete"
+        required: true
+        type: "integer"
+        format: "int32"
+      responses:
+        201:
+          description: "Customer deleted successfully."
+        422:
+          description: "Parameters with errors."
+        500:
+          description: "Unable to delete data for the desired customer."
+securityDefinitions:
+  productstore_auth:
+    type: "oauth2"
+    authorizationUrl: "http://productstore.swagger.io/oauth/dialog"
+    flow: "implicit"
+    scopes:
+      write:products: "modify products in your account"
+      read:products: "read your products"
+  api_key:
+    type: "apiKey"
+    name: "api_key"
+    in: "header"
+definitions:
+  Category:
+    type: "object"
+    properties:
+      id_category:
+        type: "integer"
+        format: "int32"
+        description: "Id of the category"
+        example: 1
+      type:
+        type: "string"
+        description: "The type of the category. It could be men or women."
+        example: "Men"
+      date_received:
+        type: "string"
+        format: "date-time"
+        description: "Date when category was received"
+        example: "2019-01-13"
+      date_updated:
+        type: "string"
+        format: "date-time"
+        description: "Date when category was updated"
+        example: "2019-01-14"
+    xml:
+      name: "Category"
+  Customer:
+    type: "object"
+    properties:
+      id_customer:
+        type: "integer"
+        format: "int32"
+        description: "Id of customer"
+        example: 15426
+      first_name:
+        type: "string"
+        description: "The first name of customer"
+        example: "Latras"
+      last_name:
+        type: "string"
+        description: "The last name of customer"
+        example: "Bengalatas"
+      street:
+        type: "string"
+        description: "The street name where customer lives"
+        example: "Vilniaus 10"
+      codepost:
+        type: "integer"
+        format: "int32"
+        description: "Codepost of customer's living place"
+        example: 17584
+      city: 
+        type: "string"
+        description: "City where customer lives"
+        example: "Vilnius"
+      number:
+        type: "integer"
+        format: "int32"
+        description: "Phone number of customer"
+        example: 370542526
+      email:
+        type: "string"
+        description: "Email of customer"
+        example: "Latras@gmail.com"
+      gender:
+        type: "string"
+        description: "Gender of customer"
+        example: "Men"
+      date_inserted:
+        type: "string"
+        format: "date-time"
+        description: "Date when customer was inserted to the system"
+        example: 2019-01-13
+      date_updated:
+        type: "string"
+        format: "date-time"
+        description: "Date when customer was updated"
+        example: 2019-01-14
+    xml:
+      name: "Customer"
+  Orders:
+    type: "object"
+    properties:
+      id_orders:
+        type: "integer"
+        format: "int32"
+        description: "Id of the order"
+        example: 435
+      order_date:
+        type: "string"
+        format: "date-time"
+        description: "The date of order"
+        example: 2019-01-13
+      date_inserted:
+        type: "string"
+        format: "date-time"
+        description: "Date when order was inserted to the system"
+        example: 2019-01-14
+      date_updated:
+        type: "string"
+        format: "date-time"
+        description: "Date when order was updated"
+        example: 2019-01-15
+      id_customer:
+        description: "Customer that made an order"
+        example:
+          $ref: "#/definitions/Customer"
+    xml:
+      name: "Orders"
+  Product:
+    type: "object"
+    properties:
+      id_product:
+        type: "integer"
+        format: "int32"
+        description: "Id of the product"
+        example: 104
+      name:
+        type: "string"
+        description: "Product name"
+        example: "Nike SB Trucker Snapback kepurė\r\n"
+      size:
+        type: "integer"
+        format: "int32"
+        description: "Size of the product"
+        example: 30
+      price: 
+        type: "integer"
+        format: "int32"
+        description: "Price of the product"
+        example: 25
+      image: 
+        type: "string"
+        description: "Image of the product"
+        example: "img-10.jpg"
+      description:
+        type: "string"
+        description: "Description about the product"
+        example: "Augalinis pluoštas, gaunamas iš vilnamedžio genties augalų sėklas gaubiančio audinio. Medvilnės pluoštas dažniausiai perdirbamas į siūlus, kurie tinkami minkštų, orui pralaidžių tekstilės audinių gamybai. Medvilninė apranga yra plačiausiai pasaulyje naudojama natūralaus pluošto apranga."
+      quantity:
+        type: "integer"
+        format: "int32"
+        description: "Quantity of product in the store"
+        example: "5"
+      date_received:
+        type: "string"
+        format: "date-time"
+        description: "Date when product was reveived from supplier"
+        example: "2019-01-13"
+      date_updated:
+        type: "string"
+        format: "date-time"
+        description: "Date when product was updated"
+        example: "2019-01-14"
+      category:
+        description: "Category of the product. Product could be for women and men."
+        example: 
+         $ref: "#/definitions/Category"
+      orders:
+        description: "Orders of the specific product"
+        example:
+         $ref: "#/definitions/Orders" 
+    xml:
+      name: "Product"
+  Stock:
+    type: "object"
+    properties:
+      id_stock:
+        type: "integer"
+        format: "int32"
+        description: "Id of stock"
+        example: 11
+      quantity:
+        type: "integer"
+        format: "int32"
+        description: "Quantity of left products in stock"
+        example: 50
+      date_received:
+        type: "string"
+        format: "date-time"
+        description: "Date when stock was received"
+        example: 2019-01-11
+      date_updated:
+        type: "string"
+        format: "date-time"
+        description: "Date when stock was updated"
+        example: 2019-01-12
+    xml:
+      name: "Stock"
+  Supplier:
+    type: "object"
+    properties:
+      id_supplier:
+        type: "integer"
+        format: "int32"
+        description: "Id of the supplier"
+        example: 18426
+      name:
+        type: "string"
+        description: "Name of the supplier"
+        example: "Nike"
+      address:
+        type: "string"
+        description: "Address of supplier"
+        example: "Rua A"
+      number:
+        type: "string"
+        description: "Phone number of supplier"
+        example: 370467923
+      bank_account:
+        type: "string"
+        description: "Bank account of supplier"
+        example: "LT152658472615846251"
+      date_inserted:
+        type: "string"
+        format: "date-time"
+        description: "Date when supplier was inserted to the system"
+        example: 2019-01-13
+      date_updated:
+        type: "string"
+        format: "date-time"
+        description: "Date when information about supplier was updated"
+        example: 2019-01-14 
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
